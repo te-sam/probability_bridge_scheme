@@ -32,7 +32,7 @@ namespace Laba5
 
                 // Переменные для хранения результатов
                 int n = Convert.ToInt32(textBox9.Text);
-                if (n > 100000)
+                if (n > 1000000)
                 {
                     MessageBox.Show("Ошибка: Компьютер слаб для таких вычислений, извините.", "Ошибка ввода", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
@@ -86,7 +86,7 @@ namespace Laba5
                 double result1 = (1 - (1 - valuesP[1]) * (1 - valuesP[4])) * (1 - (1 - valuesP[2]) * (1 - valuesP[5])) * (1 - (1 - valuesP[3]) * (1 - valuesP[6]));
                 double result2 = (1 - (1 - valuesP[1]) * (1 - valuesP[4])) * (1 - (1 - valuesP[2] * valuesP[3]) * (1 - valuesP[5] * valuesP[6]));
                 double result3 = (1 - (1 - valuesP[1] * valuesP[2]) * (1 - valuesP[4] * valuesP[5])) * (1 - (1 - valuesP[3]) * (1 - valuesP[6]));
-                double result4 = 1-(1 - valuesP[1] * valuesP[2] * valuesP[3]) * (1 - valuesP[4] - valuesP[5] - valuesP[6]);
+                double result4 = 1-(1 - valuesP[1] * valuesP[2] * valuesP[3]) * (1 - valuesP[4] * valuesP[5] * valuesP[6]);
 
                 double result5 = valuesP[8] * result1 + (1 - valuesP[8]) * result2;
                 double result6 = valuesP[8] * result3 + (1 - valuesP[8]) * result4;
