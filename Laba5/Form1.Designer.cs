@@ -59,7 +59,7 @@
             textBox1.Name = "textBox1";
             textBox1.Size = new Size(60, 27);
             textBox1.TabIndex = 0;
-            textBox1.Text = "0.1";
+            textBox1.Text = "0,1";
             // 
             // textBox2
             // 
@@ -67,7 +67,7 @@
             textBox2.Name = "textBox2";
             textBox2.Size = new Size(60, 27);
             textBox2.TabIndex = 1;
-            textBox2.Text = "0.7";
+            textBox2.Text = "0,7";
             // 
             // textBox3
             // 
@@ -75,7 +75,7 @@
             textBox3.Name = "textBox3";
             textBox3.Size = new Size(60, 27);
             textBox3.TabIndex = 2;
-            textBox3.Text = "0.11";
+            textBox3.Text = "0,11";
             // 
             // textBox6
             // 
@@ -83,7 +83,7 @@
             textBox6.Name = "textBox6";
             textBox6.Size = new Size(60, 27);
             textBox6.TabIndex = 5;
-            textBox6.Text = "0.22";
+            textBox6.Text = "0,22";
             // 
             // textBox5
             // 
@@ -91,7 +91,7 @@
             textBox5.Name = "textBox5";
             textBox5.Size = new Size(60, 27);
             textBox5.TabIndex = 4;
-            textBox5.Text = "0.3";
+            textBox5.Text = "0,3";
             // 
             // textBox4
             // 
@@ -99,7 +99,7 @@
             textBox4.Name = "textBox4";
             textBox4.Size = new Size(60, 27);
             textBox4.TabIndex = 3;
-            textBox4.Text = "0.5";
+            textBox4.Text = "0,5";
             // 
             // textBox7
             // 
@@ -107,7 +107,7 @@
             textBox7.Name = "textBox7";
             textBox7.Size = new Size(59, 27);
             textBox7.TabIndex = 6;
-            textBox7.Text = "0.3";
+            textBox7.Text = "0,3";
             // 
             // textBox8
             // 
@@ -115,7 +115,7 @@
             textBox8.Name = "textBox8";
             textBox8.Size = new Size(59, 27);
             textBox8.TabIndex = 7;
-            textBox8.Text = "0.4";
+            textBox8.Text = "0,4";
             // 
             // panel1
             // 
@@ -183,16 +183,16 @@
             // 
             // textBox10
             // 
-            textBox10.Location = new Point(273, 302);
+            textBox10.Location = new Point(244, 302);
             textBox10.Name = "textBox10";
-            textBox10.Size = new Size(85, 27);
+            textBox10.Size = new Size(152, 27);
             textBox10.TabIndex = 12;
             // 
             // textBox11
             // 
-            textBox11.Location = new Point(273, 363);
+            textBox11.Location = new Point(244, 363);
             textBox11.Name = "textBox11";
-            textBox11.Size = new Size(85, 27);
+            textBox11.Size = new Size(152, 27);
             textBox11.TabIndex = 13;
             // 
             // textBox9

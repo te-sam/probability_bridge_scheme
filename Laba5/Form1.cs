@@ -40,7 +40,7 @@ namespace Laba5
                 int trueCount = 0;
 
                 // Массив вероятностей и блоков
-                bool[] ways = new bool[8];
+                bool[] ways = new bool[9];
                 double[] valuesP = new double[9];
                 bool[] p = new bool[9];
 
@@ -79,16 +79,14 @@ namespace Laba5
                     // Вычисление результата
                     bool result = ways[0] || ways[1] || ways[2] || ways[3] || ways[4] || ways[5] || ways[6] || ways[7] || ways[8];
 
-                    if (result)
-                    {
-                        trueCount++;
-                    }
+                    if (result) trueCount++;
                 }
 
-                double result1 = (1 - (1 - valuesP[1]) * (1 - valuesP[4])) * (1 - (1 - valuesP[2]) * (1 - valuesP[5]) * (1 - (1 - valuesP[3]) * (1 - valuesP[6])));
+                //вычисление вероятностей
+                double result1 = (1 - (1 - valuesP[1]) * (1 - valuesP[4])) * (1 - (1 - valuesP[2]) * (1 - valuesP[5])) * (1 - (1 - valuesP[3]) * (1 - valuesP[6]));
                 double result2 = (1 - (1 - valuesP[1]) * (1 - valuesP[4])) * (1 - (1 - valuesP[2] * valuesP[3]) * (1 - valuesP[5] * valuesP[6]));
                 double result3 = (1 - (1 - valuesP[1] * valuesP[2]) * (1 - valuesP[4] * valuesP[5])) * (1 - (1 - valuesP[3]) * (1 - valuesP[6]));
-                double result4 = (1 - valuesP[1] * valuesP[2] * valuesP[3]) * (1 - valuesP[4] - valuesP[5] - valuesP[6]);
+                double result4 = 1-(1 - valuesP[1] * valuesP[2] * valuesP[3]) * (1 - valuesP[4] - valuesP[5] - valuesP[6]);
 
                 double result5 = valuesP[8] * result1 + (1 - valuesP[8]) * result2;
                 double result6 = valuesP[8] * result3 + (1 - valuesP[8]) * result4;
