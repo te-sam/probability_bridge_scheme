@@ -40,6 +40,7 @@ namespace Laba5
                 int trueCount = 0;
 
                 // Массив вероятностей и блоков
+                bool[] blocks = new bool[7];
                 double[] probabilities = new double[9];
                 bool[] p = new bool[9];
 
@@ -55,7 +56,29 @@ namespace Laba5
                     randomList.Add(new Random(randomGenerator.Next(10000)));
                 }
 
+                // Главный цикл
+                for (int i = 0; i < n; i++)
+                {
+                    for (int j = 1; j < p.Length; j++)
+                    {
+                        double randomValue = randomList[j - 1].NextDouble();
+                        p[j] = randomValue <= probabilities[j];
+                    }
 
+                    // Вычисление блоков
+                    blocks[0] = (p[1] && p[2]) || (p[3] && p[4]);
+                    blocks[1] = (p[5] || (p[6] && p[7])) && p[8];
+                    blocks[2] = p[9] || (p[10] && (p[11] || p[12]));
+                    blocks[3] = p[13] || p[14] || (p[15] && p[16]);
+
+                    // Вычисление результата
+                    bool result = blocks[0] || (blocks[1] && blocks[2] && blocks[3]);
+
+                    if (result)
+                    {
+                        trueCount++;
+                    }
+                }
             }
         }
     }
