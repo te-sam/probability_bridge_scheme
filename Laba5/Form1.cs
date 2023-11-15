@@ -40,14 +40,14 @@ namespace Laba5
                 int trueCount = 0;
 
                 // Массив вероятностей и блоков
-                bool[] blocks = new bool[7];
-                double[] probabilities = new double[9];
+                bool[] ways = new bool[8];
+                double[] valuesP = new double[9];
                 bool[] p = new bool[9];
 
                 // Заполнение массива вероятностей
                 for (int i = 1; i <= 8; i++)
                 {
-                    probabilities[i] = Convert.ToDouble(Controls.Find("textBox" + i, true)[0].Text);
+                    valuesP[i] = Convert.ToDouble(Controls.Find("textBox" + i, true)[0].Text);
                 }
 
                 // Заполнение списка генераторами случайных чисел
@@ -62,23 +62,42 @@ namespace Laba5
                     for (int j = 1; j < p.Length; j++)
                     {
                         double randomValue = randomList[j - 1].NextDouble();
-                        p[j] = randomValue <= probabilities[j];
+                        p[j] = randomValue <= valuesP[j];
                     }
 
-                    // Вычисление блоков
-                    blocks[0] = (p[1] && p[2]) || (p[3] && p[4]);
-                    blocks[1] = (p[5] || (p[6] && p[7])) && p[8];
-                    blocks[2] = p[9] || (p[10] && (p[11] || p[12]));
-                    blocks[3] = p[13] || p[14] || (p[15] && p[16]);
+                    // Вычисление путей
+                    ways[0] = p[1] && p[2] && p[3];
+                    ways[1] = p[1] && p[2] && p[8] && p[6];
+                    ways[2] = p[1] && p[7] && p[5] && p[6];
+                    ways[3] = p[1] && p[7] && p[5] && p[8] && p[3];
+
+                    ways[4] = p[4] && p[5] && p[6];
+                    ways[5] = p[4] && p[5] && p[8] && p[3];
+                    ways[6] = p[4] && p[7] && p[2] && p[3];
+                    ways[7] = p[4] && p[7] && p[2] && p[8] && p[6];
 
                     // Вычисление результата
-                    bool result = blocks[0] || (blocks[1] && blocks[2] && blocks[3]);
+                    bool result = ways[0] || ways[1] || ways[2] || ways[3] || ways[4] || ways[5] || ways[6] || ways[7] || ways[8];
 
                     if (result)
                     {
                         trueCount++;
                     }
                 }
+
+                double result1 = (1 - (1 - valuesP[1]) * (1 - valuesP[4])) * (1 - (1 - valuesP[2]) * (1 - valuesP[5]) * (1 - (1 - valuesP[3]) * (1 - valuesP[6])));
+                double result2 = (1 - (1 - valuesP[1]) * (1 - valuesP[4])) * (1 - (1 - valuesP[2] * valuesP[3]) * (1 - valuesP[5] * valuesP[6]));
+                double result3 = (1 - (1 - valuesP[1] * valuesP[2]) * (1 - valuesP[4] * valuesP[5])) * (1 - (1 - valuesP[3]) * (1 - valuesP[6]));
+                double result4 = (1 - valuesP[1] * valuesP[2] * valuesP[3]) * (1 - valuesP[4] - valuesP[5] - valuesP[6]);
+
+                double result5 = valuesP[8] * result1 + (1 - valuesP[8]) * result2;
+                double result6 = valuesP[8] * result3 + (1 - valuesP[8]) * result4;
+
+                double finalResult = valuesP[7] * result5 + (1 - valuesP[7]) * result6;
+
+                textBox10.Text = Convert.ToString(finalResult);
+                textBox11.Text = Convert.ToString((double)trueCount / n);
+
             }
         }
     }
